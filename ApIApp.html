@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form>
+        <input id="username">
+        <input id="password">
+        <!-- <input id="submit" value="login" type="submit" onclick="checkLogin()"/> -->
+    </form>
+    <button id="Login" onclick="checkLogin()">LOGIN</button>
+    <script>
+       
+        async function checkLogin(e){
+            var username=document.getElementById("username").value
+            var password=document.getElementById("password").value
+
+           var data=await fetch("http://localhost:3000/data")
+           data=await data.json()
+
+           if(data.username===username && data.password===password)
+           {
+               alert("you are logged in");
+           }
+            else{
+                alert("you need to sign up first")
+            }
+
+            console.log(username,password)
+            alert(username,password)
+        }
+    </script>
+</body>
+</html>
